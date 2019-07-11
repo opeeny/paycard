@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mini App</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 1em;
+        background-color: #fff;
+      }
+      [data-cart-info]{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .material-icons{
+        font-size: 150px;
+      }
+      [data-credit-card]{
+        width: 435px;
+        min-height: 240px;
+        border-radius: 10px;
+        background-color: #5d6874;
+      }
+      [data-card-type]{
+        display: block;
+        width: 120px;
+        height: 60px;
+      }
+      [data-cc-digits]{
+        margin-top: 2em;
+      }
+      [data-cc-digits] input{
+        color: #fff;
+        font-size: 2em;
+        line-height: 2em;
+        border: none;
+        margin-right: 0.5em;
+      }
+      [data-cc-info]{
+        margin-top: 1em
+      }
+      [data-cc-info] input{
+        color: #fff;
+        font-size: 1.2em;
+        border: none;
+        background-color: initial;
+      }
+      [data-cc-info] input[type = "date"]{
+        padding-right: 10px;
+        float: right;
+      }
+      [data-pay-btn]{
+        position:fixed;
+        bottom: 20px;
+        width: 90%;
+        border: 1px solid;
+      }
+      [data-cart-info],
+      [data-credit-card] {
+        transform: scale(0.78);
+    	margin-left: -3.4em;
+      }
+
+      [data-cc-info] input:focus,
+      [data-cc-digits] input:focus {
+        outline: none;
+      }
+
+      .mdc-card__primary-action,
+      .mdc-card__primary-action:hover {
+        cursor: auto;
+        padding: 20px;
+        min-height: inherit;
+      }
+      
+      [data-credit-card] [data-card-type] {
+        transition: width 1.5s;
+        margin-left: calc(100% - 130px);
+      }
+
+      .is-visa {
+        background: linear-gradient(135deg, #622774 0%, #c53364 100%);
+      }
+
+      .is-mastercard {
+        background: linear-gradient(135deg, #65799b 0%, #5e2563 100%);
+      }
+
+      .is-visa [data-card-type],
+      .is-mastercard [data-card-type] {
+        width: auto;
+      }
+
+      input.is-invalid,
+      .is-invalid input {
+        text-decoration: line-through;
+      }
+
+      ::placeholder {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-cart-info>
+      <h4 class = "mdc-typography--headline4">
+       <span class = "material-icons">shopping_cart</span>
+        <span data-bill>total figure</span>
+      </h4>
+    </div>
+    <div class = "mdc-card mdc-card--outlined" data-credit-card>
+      	<div class = "mdc-card__primary-action">
+          	<img data-card-type src = "http://placehold.it/120x60.png?text=Card" />
+          	<div data-cc-digits>
+              <input type = "text" size = "4" placeholder = "----">
+              <input type = "text" size = "4" placeholder = "----">
+              <input type = "text" size = "4" placeholder = "----">
+              <input type = "text" size = "4" placeholder = "----">
+          </div>
+          <div data-cc-info>
+            <input type = "text" name = "name" size = "20" placeholder = "Name Surname">
+            <input type = "text" name = "expiry date" size = "6" placeholder = "MM/YY">
+          </div>
+      </div>
+      <button class = "mdc-button" data-pay-btn>Pay & Checkout Now</button>
+    </div>
+    <script>
+      const supportedCards = {
+        visa, mastercard
+      };
+      
+      const countries = [
+        {
+          code: "US",
+          currency: "USD",
+          country: 'United States'
+        },
+        {
+          code: "NG",
+          currency: "NGN",
+          country: 'Nigeria'
+        },
+        {
+          code: 'KE',
+          currency: 'KES',
+          country: 'Kenya'
+        },
+        {
+          code: 'UG',
+          currency: 'UGX',
+          country: 'Uganda'
+        },
+        {
+          code: 'RW',
+          currency: 'RWF',
+          country: 'Rwanda'
+        },
+        {
+          code: 'TZ',
+          currency: 'TZS',
+          country: 'Tanzania'
+        },
+        {
+          code: 'ZA',
+          currency: 'ZAR',
+          country: 'South Africa'
+        },
+        {
+          code: 'CM',
+          currency: 'XAF',
+          country: 'Cameroon'
+        },
+        {
+          code: 'GH',
+          currency: 'GHS',
+          country: 'Ghana'
+        }
+      ];
+      
+      const startApp = () => {
+      };
+
+      startApp();
+    </script>
+  </body>
+</html>
