@@ -1,0 +1,23 @@
+The validateCardHolderName function isn't supposed to take in a target attribute... 
+you're supposed to get the element from the DOM inside the function... not pass it in as  a parameter
+
+
+const validateCardExpiryDate = () => {
+          const date = document.querySelector('input[name=date]');
+          const isValid = expiryDateFormatIsValid(date);
+          const expMonth = date.value.split('/')[0];
+          const expYear = `20${date.value.split('/')[1]}`;
+          const userDate = new Date(`${expMonth}-01-${expYear}`);
+          const result = isValid && userDate >= new Date() ? true: false; 
+          flagIfInvalid(date, result);
+          return result;
+      };
+
+
+const validateCardHolderName = () => {
+        
+          const name = document.querySelector('input[name = name]');
+          const isValid = /^([a-zA-Z]{3,})\s([a-zA-Z]{3,})$/.test(name.value);
+          flagIfInvalid(name, isValid);
+          return isValid;
+      };
